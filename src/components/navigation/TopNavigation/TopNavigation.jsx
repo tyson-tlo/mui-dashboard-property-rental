@@ -22,6 +22,18 @@ function TopNavigation() {
           <Button color="inherit" onClick={navigateTo.dashboard}>
             Home
           </Button>
+          <Button color="inherit" onClick={navigateTo.dashboard}>
+            Rentals
+          </Button>
+          <Button color="inherit" onClick={navigateTo.dashboard}>
+            Applications
+          </Button>
+          <Button color="inherit" onClick={navigateTo.dashboard}>
+            Requests
+          </Button>
+          <Button color="inherit" onClick={navigateTo.dashboard}>
+            Tasks
+          </Button>
         </div>
         <Button color="inherit" onClick={navigateTo.settings}>
           <SettingsIcon /> Settings
