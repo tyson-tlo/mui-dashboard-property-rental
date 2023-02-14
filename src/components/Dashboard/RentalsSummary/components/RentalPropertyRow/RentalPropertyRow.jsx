@@ -19,7 +19,7 @@ function RentalPropertyRow({ rental }) {
           <Grid item xs={11}>
             <Grid container>
               <Grid item xs={12}>
-                <Typography variant="h6">
+                <Typography variant="p">
                   {rental.name}{" "}
                   <small>
                     {rental.city}, {rental.state}
@@ -29,20 +29,28 @@ function RentalPropertyRow({ rental }) {
             </Grid>
             <Grid container>
               <Grid item xs={3}>
-                <Web color="disabled" fontSize="tiny" /> {rental.applications}{" "}
-                applications
+                <p>
+                  <Web color="disabled" fontSize="tiny" /> {rental.applications}{" "}
+                  applications
+                </p>
               </Grid>
               <Grid item xs={3}>
-                <RingVolumeOutlined color="disabled" fontSize="tiny" />{" "}
-                {rental.requests} requests
+                <p>
+                  <RingVolumeOutlined color="disabled" fontSize="tiny" />{" "}
+                  {rental.requests} requests
+                </p>
               </Grid>
               <Grid item xs={3}>
-                <FormatListBulleted color="disabled" fontSize="tiny" />{" "}
-                {rental.tasks} tasks
+                <p>
+                  <FormatListBulleted color="disabled" fontSize="tiny" />{" "}
+                  {rental.tasks} tasks
+                </p>
               </Grid>
               <Grid item xs={3}>
-                <DoorFront color="disabled" fontSize="tiny" /> {rental.units}{" "}
-                units
+                <p>
+                  <DoorFront color="disabled" fontSize="tiny" /> {rental.units}{" "}
+                  units
+                </p>
               </Grid>
             </Grid>
           </Grid>
