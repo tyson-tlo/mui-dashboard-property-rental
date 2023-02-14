@@ -11,6 +11,22 @@ function useNavigationRoutes() {
     navigate("/");
   };
 
+  const rentals = () => {
+    navigate("/rentals");
+  };
+
+  const applications = () => {
+    navigate("/applications");
+  };
+
+  const requests = () => {
+    navigate("/requests");
+  };
+
+  const tasks = () => {
+    navigate("/tasks");
+  };
+
   const settings = () => {
     navigate("/settings");
   };
@@ -19,6 +35,10 @@ function useNavigationRoutes() {
     login,
     dashboard,
     settings,
+    rentals,
+    applications,
+    requests,
+    tasks,
   };
 }
 

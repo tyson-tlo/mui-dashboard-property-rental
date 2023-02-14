@@ -17,6 +17,22 @@ const router = createBrowserRouter([
     path: "settings",
     element: <Authenticated children={<Settings />} />,
   },
+  {
+    path: "rentals",
+    element: <Authenticated children={<div>Rentals</div>} />,
+  },
+  {
+    path: "applications",
+    element: <Authenticated children={<div>Applications</div>} />,
+  },
+  {
+    path: "requests",
+    element: <Authenticated children={<div>Requests</div>} />,
+  },
+  {
+    path: "tasks",
+    element: <Authenticated children={<div>Tasks</div>} />,
+  },
 ]);
 
 export default router;

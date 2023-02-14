@@ -12,7 +12,6 @@ import { RentalPropertyRow } from "./components";
 
 function RentalsSummary() {
   const { rentals } = useRentalsSummaryProvider();
-  console.log(rentals);
 
   return (
     <Card sx={{ minWidth: 275 }}>

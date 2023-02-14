@@ -21,7 +21,8 @@
     "react-minimal-pie-chart": "^8.4.0",
     "react-router-dom": "^6.8.1",
     "sort-by": "^1.2.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
