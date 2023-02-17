@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import React from "react";
 import { RentalIncomeSummary, TasksSummary } from "./components";
 import {
@@ -12,7 +12,7 @@ import WelcomeUser from "./WelcomeUser/WelcomeUser";
 
 function Dashboard() {
   return (
-    <React.Fragment>
+    <Container>
       <WelcomeUser />
       <Grid container spacing={1}>
         <Grid item xs={6}>
@@ -30,7 +30,7 @@ function Dashboard() {
       <RentalsSummaryProvider>
         <RentalsSummary />
       </RentalsSummaryProvider>
-    </React.Fragment>
+    </Container>
   );
 }
 

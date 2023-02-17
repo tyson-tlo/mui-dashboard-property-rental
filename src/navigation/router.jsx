@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Authenticated from "../components/authentication/Authenticated/Authenticated";
 import Login from "../components/authentication/Login/Login";
 import Dashboard from "../components/Dashboard/Dashboard";
+import Rental from "../components/Rentals/components/Rental/Rental";
+import Rentals from "../components/Rentals/Rentals";
 import Settings from "../components/Settings/Settings";
 
 const router = createBrowserRouter([
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
   },
   {
     path: "rentals",
-    element: <Authenticated children={<div>Rentals</div>} />,
+    element: <Authenticated children={<Rentals />} />,
   },
   {
     path: "applications",

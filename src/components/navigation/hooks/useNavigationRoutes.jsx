@@ -15,6 +15,12 @@ function useNavigationRoutes() {
     navigate("/rentals");
   };
 
+  const rental = (id) => {
+    return () => {
+      navigate(`/rentals/${id}`);
+    };
+  };
+
   const applications = () => {
     navigate("/applications");
   };
@@ -36,6 +42,7 @@ function useNavigationRoutes() {
     dashboard,
     settings,
     rentals,
+    rental,
     applications,
     requests,
     tasks,

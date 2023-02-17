@@ -74,6 +74,32 @@ const americanCities = [
   { city: "Orlando", state: "FL" },
 ];
 
+function setBasicData(_, index) {
+  return {
+    id: index + 1,
+    name: `The residences at ${americanCities[index].city}`,
+    city: americanCities[index].city,
+    state: americanCities[index].state,
+    units: random(10, 200),
+    applications: random(0, 15),
+    requests: random(0, 15),
+    tasks: random(0, 15),
+    image: `http://placeimg.com/640/640/city`,
+  };
+}
+
+function setLocationAttribute(property) {
+  const location = `${property.city} ${property.state}`;
+
+  return { ...property, location };
+}
+
+export function generateRentalData() {
+  return [setBasicData(null, random(0, americanCities.length - 1))].map(
+    setLocationAttribute
+  )[0];
+}
+
 export default function generateRentalsSummaryData(numOfItems = 10) {
   if (numOfItems > americanCities.length) {
     throw new Error(
@@ -81,17 +107,5 @@ export default function generateRentalsSummaryData(numOfItems = 10) {
     );
   }
 
-  return range(numOfItems).map((_, index) => {
-    return {
-      id: index,
-      name: `The residences at ${americanCities[index].city}`,
-      city: americanCities[index].city,
-      state: americanCities[index].state,
-      units: random(10, 200),
-      applications: random(0, 15),
-      requests: random(0, 15),
-      tasks: random(0, 15),
-      image: `http://placeimg.com/640/640/city`,
-    };
-  });
+  return range(numOfItems).map(setBasicData).map(setLocationAttribute);
 }
