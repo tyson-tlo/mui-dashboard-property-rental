@@ -30,7 +30,7 @@ function RentalPropertyRow({ rental }) {
             <Grid container>
               <Grid item xs={3}>
                 <p>
-                  <Web color="disabled" fontSize="tiny" /> {rental.applications}{" "}
+                  <Web color="disabled" fontSize="tiny" /> {rental.length}{" "}
                   applications
                 </p>
               </Grid>
@@ -48,8 +48,8 @@ function RentalPropertyRow({ rental }) {
               </Grid>
               <Grid item xs={3}>
                 <p>
-                  <DoorFront color="disabled" fontSize="tiny" /> {rental.units}{" "}
-                  units
+                  <DoorFront color="disabled" fontSize="tiny" />{" "}
+                  {rental.units.length} units
                 </p>
               </Grid>
             </Grid>

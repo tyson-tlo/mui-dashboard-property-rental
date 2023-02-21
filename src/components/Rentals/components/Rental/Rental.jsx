@@ -1,18 +1,26 @@
 import { Container, Typography } from "@mui/material";
-import { useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { generateRentalData } from "../../../../../test/data/generateRentalsSummaryData";
+import { Applications, RentalUnits, Requests } from "./components";
+
+export const RentalDetailsContext = createContext();
 
 function Rental() {
-  const { id } = useParams();
-  const [rental, setRental] = useState(generateRentalData() || {});
-
-  console.log("Router param:", id);
+  const { rentalId } = useParams();
+  const [rental, setRental] = useState(generateRentalData());
 
   return (
-    <Container>
-      <Typography variant="h1">{rental.name}</Typography>
-    </Container>
+    <RentalDetailsContext.Provider value={{ rental }}>
+      <Container>
+        <Typography variant="h4" mb={3}>
+          {rental.name}
+        </Typography>
+        {/* <RentalUnits /> */}
+        <Requests />
+        <Applications />
+      </Container>
+    </RentalDetailsContext.Provider>
   );
 }
 

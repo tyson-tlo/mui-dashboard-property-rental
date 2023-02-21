@@ -1,4 +1,5 @@
-import { random, range, sample } from "lodash";
+import { faker } from "@faker-js/faker";
+import { random, range, sample, shuffle, uniqueId } from "lodash";
 
 const americanCities = [
   { city: "New York", state: "NY" },
@@ -74,14 +75,100 @@ const americanCities = [
   { city: "Orlando", state: "FL" },
 ];
 
+function setUnitNumber(unitNumber) {
+  const floorNumber = Math.floor(unitNumber / 10) + 1;
+
+  if (unitNumber % 10 === 0) {
+    return `${floorNumber}01`;
+  }
+
+  if (unitNumber % 10 === 9) {
+    return `${floorNumber}10`;
+  }
+
+  return `${floorNumber}0${(unitNumber % 10) + 1}`;
+}
+
+const maintenanceTasks = [
+  "Replace lightbulb",
+  "Replace faucet",
+  "Replace toilet",
+  "Replace showerhead",
+  "Replace door handle",
+  "Replace door lock",
+  "Replace doorbell",
+  "Replace smoke detector",
+  "Replace thermostat",
+  "Replace air filter",
+  "Replace garbage disposal",
+  "Replace kitchen faucet",
+  "Replace kitchen sink",
+  "Replace kitchen cabinet",
+  "Replace kitchen countertop",
+  "Replace kitchen backsplash",
+  "Replace kitchen appliance",
+  "Replace kitchen light fixture",
+  "Replace kitchen faucet",
+  "Replace bathroom faucet",
+  "Replace bathroom sink",
+  "Replace bathroom cabinet",
+  "Replace bathroom countertop",
+  "Replace bathroom backsplash",
+  "Replace bathroom appliance",
+  "Replace bathroom light fixture",
+  "Replace bedroom light fixture",
+  "Replace bedroom door",
+  "Replace bedroom closet",
+  "Replace bedroom window",
+];
+
+function generateUnitRequest(task) {
+  return {
+    id: uniqueId(),
+    description: task,
+    status: sample(["Pending", "In Progress", "Completed"]),
+  };
+}
+
+function generateUnitData(unit, index) {
+  return {
+    id: uniqueId(),
+    name: `Unit ${setUnitNumber(unit)}`,
+    meta: faker.lorem.sentence(),
+    bedrooms: sample([0, 1, 2, 3]),
+    bathrooms: sample([1, 1.5, 2, 2.5]),
+    appliances: sample([
+      ["Refrigerator", "Stove", "Dishwasher", "Microwave"],
+      ["Refrigerator", "Stove", "Dishwasher"],
+      ["Refrigerator", "Stove", "Microwave"],
+      ["Refrigerator", "Stove"],
+    ]),
+    rent: random(500, 2000),
+    status: sample(["Available", "Occupied"]),
+    requests: shuffle(maintenanceTasks)
+      .slice(0, random(0, 5))
+      .map(generateUnitRequest),
+  };
+}
+
+function generateApplicationData() {
+  return {
+    id: uniqueId(),
+    name: faker.name.fullName(),
+    email: faker.internet.email(),
+    phone: faker.phone.number(),
+    status: sample(["Pending", "Approved", "Rejected"]),
+  };
+}
+
 function setBasicData(_, index) {
   return {
     id: index + 1,
     name: `The residences at ${americanCities[index].city}`,
     city: americanCities[index].city,
     state: americanCities[index].state,
-    units: random(10, 200),
-    applications: random(0, 15),
+    units: range(random(5, 100)).map(generateUnitData),
+    applications: range(random(0, 15)).map(generateApplicationData),
     requests: random(0, 15),
     tasks: random(0, 15),
     image: `http://placeimg.com/640/640/city`,

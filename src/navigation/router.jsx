@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     element: <Authenticated children={<Settings />} />,
   },
   {
-    path: "rentals",
+    path: "rentals/*",
     element: <Authenticated children={<Rentals />} />,
   },
   {

@@ -11,8 +11,8 @@ function Rentals() {
   return (
     <RentalsContext.Provider value={{ rentals }}>
       <Routes>
-        <Route path="/" element={<RentalsList />} />
-        <Route path=":id" element={<Rental />} />
+        <Route index element={<RentalsList />} />
+        <Route path=":rentalId/*" element={<Rental />} />
       </Routes>
     </RentalsContext.Provider>
   );
