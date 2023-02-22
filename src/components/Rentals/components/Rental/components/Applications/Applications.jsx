@@ -11,20 +11,17 @@ function Applications() {
       title="Applications"
       meta={`${rental.applications.length} total applications`}
     >
-      <Container>
+      <Container style={{ maxHeight: "350px", overflowY: "scroll" }}>
         <GenericTable
           headers={["Name", "Email", "Phone", "Status"]}
-          rows={rental.applications.map((application) => {
-            return {
-              key: application.id,
-              content: [
-                application.name,
-                application.email,
-                application.phone,
-                application.status,
-              ],
-            };
-          })}
+          rows={rental.applications.map(
+            ({ id, name, email, phone, status }) => {
+              return {
+                key: id,
+                content: [name, email, phone, status],
+              };
+            }
+          )}
         />
       </Container>
     </GenericCard>

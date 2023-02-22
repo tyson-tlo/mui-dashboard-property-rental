@@ -38,7 +38,7 @@ function RentalsList() {
                   </span>
                 </TableCell>
                 <TableCell>{rental.location}</TableCell>
-                <TableCell>{rental.applications}</TableCell>
+                <TableCell>{rental.applications.length}</TableCell>
                 <TableCell>{rental.requests}</TableCell>
               </TableRow>
             ))}

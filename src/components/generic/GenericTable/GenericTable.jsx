@@ -5,10 +5,11 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import PropTypes from "prop-types";
 
-function GenericTable({ headers, rows }) {
+function GenericTable({ headers, rows, style }) {
   return (
-    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+    <Table sx={{ minWidth: 650, ...style }} aria-label="simple table">
       <TableHead>
         <TableRow>
           {headers.map((header) => (
@@ -31,5 +32,20 @@ function GenericTable({ headers, rows }) {
     </Table>
   );
 }
+
+GenericTable.propTypes = {
+  headers: PropTypes.arrayOf(PropTypes.string).isRequired,
+  rows: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      content: PropTypes.arrayOf(PropTypes.string).isRequired,
+    })
+  ).isRequired,
+  style: PropTypes.object,
+};
+
+GenericTable.defaultProps = {
+  style: {},
+};
 
 export default GenericTable;

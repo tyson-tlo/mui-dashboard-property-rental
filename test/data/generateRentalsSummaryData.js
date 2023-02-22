@@ -143,8 +143,8 @@ function generateUnitData(unit, index) {
       ["Refrigerator", "Stove", "Microwave"],
       ["Refrigerator", "Stove"],
     ]),
-    rent: random(500, 2000),
-    status: sample(["Available", "Occupied"]),
+    rent: `$ ${random(500, 2000).toFixed(2)}`,
+    status: sample(["Vacant", "Occupied"]),
     requests: shuffle(maintenanceTasks)
       .slice(0, random(0, 5))
       .map(generateUnitRequest),

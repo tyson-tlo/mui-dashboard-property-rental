@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import { Applications, Requests } from "../components";
 import Authenticated from "../components/authentication/Authenticated/Authenticated";
 import Login from "../components/authentication/Login/Login";
 import Dashboard from "../components/Dashboard/Dashboard";
@@ -25,11 +26,11 @@ const router = createBrowserRouter([
   },
   {
     path: "applications",
-    element: <Authenticated children={<div>Applications</div>} />,
+    element: <Authenticated children={<Applications />} />,
   },
   {
     path: "requests",
-    element: <Authenticated children={<div>Requests</div>} />,
+    element: <Authenticated children={<Requests />} />,
   },
   {
     path: "tasks",

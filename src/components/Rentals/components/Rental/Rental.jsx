@@ -2,7 +2,7 @@ import { Container, Typography } from "@mui/material";
 import { createContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { generateRentalData } from "../../../../../test/data/generateRentalsSummaryData";
-import { Applications, RentalUnits, Requests } from "./components";
+import { Applications, RentalUnits, Requests, Units } from "./components";
 
 export const RentalDetailsContext = createContext();
 
@@ -19,6 +19,7 @@ function Rental() {
         {/* <RentalUnits /> */}
         <Requests />
         <Applications />
+        <Units />
       </Container>
     </RentalDetailsContext.Provider>
   );
