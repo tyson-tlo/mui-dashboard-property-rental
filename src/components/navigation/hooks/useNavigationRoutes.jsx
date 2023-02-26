@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 function useNavigationRoutes() {
   const navigate = useNavigate();
 
+  const signup = () => {
+    navigate("/signup");
+  };
+
   const login = () => {
     navigate("/login");
   };
@@ -38,6 +42,7 @@ function useNavigationRoutes() {
   };
 
   return {
+    signup,
     login,
     dashboard,
     settings,

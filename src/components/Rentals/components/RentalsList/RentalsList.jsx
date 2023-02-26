@@ -7,14 +7,14 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Container, Typography } from "@mui/material";
 import useNavigationRoutes from "../../../navigation/hooks/useNavigationRoutes";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { RentalsContext } from "../../Rentals";
 
 function RentalsList() {
   const { rentals } = useContext(RentalsContext);
   const navigateTo = useNavigationRoutes();
   return (
-    <Container>
+    <React.Fragment>
       <Typography variant="h4">Rentals</Typography>
       <TableContainer component={Paper} sx={{ marginTop: "20px" }}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -45,7 +45,7 @@ function RentalsList() {
           </TableBody>
         </Table>
       </TableContainer>
-    </Container>
+    </React.Fragment>
   );
 }
 

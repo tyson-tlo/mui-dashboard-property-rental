@@ -19,6 +19,19 @@ function generateTask() {
     dueDate: faker.date.future().toDateString(),
     priority: random(1, 5),
     status: sample(["New", "In Progress", "Completed", "On Hold", "Cancelled"]),
+    images: range(5).map(() => "https://picsum.photos/200/300"), // generate 5 images
+    property: {
+      id: uniqueId(),
+      address: faker.address.streetAddress(),
+      city: faker.address.city(),
+      state: faker.address.state(),
+      manager: {
+        id: uniqueId(),
+        name: `${faker.name.firstName()} ${faker.name.lastName()}`,
+        email: faker.internet.email(),
+        phone: faker.phone.number(),
+      },
+    },
   };
 }
 

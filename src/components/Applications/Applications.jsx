@@ -13,19 +13,17 @@ function Applications() {
   console.log("applications: ", applications);
 
   return (
-    <Container>
-      <GenericCard title="Applications">
-        <GenericTable
-          headers={["Name", "Email", "Phone", "Status"]}
-          rows={applications.map(({ id, name, email, phone, status }) => {
-            return {
-              key: id,
-              content: [name, email, phone, status],
-            };
-          })}
-        />
-      </GenericCard>
-    </Container>
+    <GenericCard title="Applications">
+      <GenericTable
+        headers={["Name", "Email", "Phone", "Status"]}
+        rows={applications.map(({ id, name, email, phone, status }) => {
+          return {
+            key: id,
+            content: [name, email, phone, status],
+          };
+        })}
+      />
+    </GenericCard>
   );
 }
 

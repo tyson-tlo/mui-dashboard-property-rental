@@ -12,15 +12,13 @@ function Rental() {
 
   return (
     <RentalDetailsContext.Provider value={{ rental }}>
-      <Container>
-        <Typography variant="h4" mb={3}>
-          {rental.name}
-        </Typography>
-        {/* <RentalUnits /> */}
-        <Requests />
-        <Applications />
-        <Units />
-      </Container>
+      <Typography variant="h4" mb={3}>
+        {rental.name}
+      </Typography>
+      {/* <RentalUnits /> */}
+      <Requests />
+      <Applications />
+      <Units />
     </RentalDetailsContext.Provider>
   );
 }
