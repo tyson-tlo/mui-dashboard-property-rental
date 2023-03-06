@@ -9,42 +9,31 @@ import { Container, Typography } from "@mui/material";
 import useNavigationRoutes from "../../../navigation/hooks/useNavigationRoutes";
 import React, { useContext } from "react";
 import { RentalsContext } from "../../Rentals";
+import { GenericCard, GenericTable } from "../../../generic";
 
 function RentalsList() {
   const { rentals } = useContext(RentalsContext);
   const navigateTo = useNavigationRoutes();
   return (
     <React.Fragment>
-      <Typography variant="h4">Rentals</Typography>
-      <TableContainer component={Paper} sx={{ marginTop: "20px" }}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Property Name</TableCell>
-              <TableCell>Location</TableCell>
-              <TableCell>Applications</TableCell>
-              <TableCell>Requests</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rentals.map((rental) => (
-              <TableRow
-                key={rental.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  <span onClick={navigateTo.rental(rental.id)}>
-                    {rental.name}
-                  </span>
-                </TableCell>
-                <TableCell>{rental.location}</TableCell>
-                <TableCell>{rental.applications.length}</TableCell>
-                <TableCell>{rental.requests}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <GenericCard title="Rentals">
+        <GenericTable
+          headers={["Property Name", "Location", "Applications", "Requests"]}
+          rows={rentals.map(
+            ({ id, name, location, applications, requests }) => {
+              return {
+                key: id,
+                content: [
+                  <span onClick={navigateTo.rental(id)}>{name}</span>,
+                  location,
+                  applications.length,
+                  requests,
+                ],
+              };
+            }
+          )}
+        />
+      </GenericCard>
     </React.Fragment>
   );
 }

@@ -1,4 +1,3 @@
-import { Container, Typography } from "@mui/material";
 import { useState } from "react";
 import generateRentalsSummaryData from "../../../test/data/generateRentalsSummaryData";
 import { GenericCard, GenericTable } from "../generic";
